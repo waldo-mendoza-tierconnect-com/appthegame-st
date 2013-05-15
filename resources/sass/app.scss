@@ -138,13 +138,28 @@ $txt-list-color: #00315a;
 //End List players
 
 //Begin button games
-.btn-game{
-  background: none transparent;
-  border: 0;
-  @include border-radius(0);
-  .x-button-label{font-size: 0.9em; color: #b6c1d2; font-weight: normal;}
-  .icon{
-
+.panel-games{
+  .x-button{
+    background: none transparent;
+    border: 0;
+    @include border-radius(0);
+    .x-button-label{font-size: 0.9em; color: #999999; font-weight: normal;}
+    .icon{
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
   }
+.x-button.atg-games-expanded{
+  .x-button-label{}
+  .icon{
+    background-image: url("../icons/images/ic-arrow-right.png");
+  }
+}
+.x-button.atg-games-collapsed{
+  .x-button-label{}
+  .icon{
+    background-image: url("../icons/images/ic-arrow-left.png");
+  }
+}
 }
 //End button games
