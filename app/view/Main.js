@@ -1,6 +1,10 @@
 Ext.define('ATG.view.Main', {
     extend: 'Ext.Container',
-    requires: ['ATG.view.PositionsBar', 'Ext.Anim'],
+    requires: [
+        'ATG.view.PositionsBar',
+        'ATG.view.ListColumns',
+        'Ext.Anim'
+    ],
     xtype: 'main',
 
     config: {
@@ -27,6 +31,9 @@ Ext.define('ATG.view.Main', {
 //                lineHeight: '70px',
 //                textAlign: 'center'
 //            }
+        }, {
+            xtype: 'listcolumns',
+            selectedColumn: 0
         }, {
             xtype: 'list',
             cls: 'pl-list',

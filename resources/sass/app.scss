@@ -28,10 +28,9 @@ $app-backgroundColor: #f9fcfc;
   background-position: 50% 100%;
   background-repeat: no-repeat;
   border: 0 !important;
-  header: 10%;
   .x-innerhtml {
     color: $head-testColor;
-    font-size: 75%;
+    font-size: 1.4em;
     font-weight: normal;
   }
 }
@@ -56,7 +55,7 @@ $app-backgroundColor: #f9fcfc;
       height: 20px;
       line-height: 20px;
       top:50px;
-      right: 10%;
+      right: 50px;
       @include box-shadow(none);
     }
   }
@@ -85,7 +84,7 @@ $app-backgroundColor: #f9fcfc;
 //Begin Points bar
 .points-bar{
   background-color: $app-backgroundColor;
-  font-size: 120%;
+  font-size: 1.5em;
   font-weight: normal;
 
 }
@@ -103,36 +102,12 @@ $btn-backgroundColor-confirm: #55e100;
 }
 //End button confirm
 
-//Begin List players
-$txt-list-color: #00315a;
-.pl-list{
-  .pl-infoContent{
-    display: inline-block;
-    font-size: 18px;
-    padding: 8px;
-    //width: 100%;
-  }
-  .pl-name{
-    color:$txt-list-color;
-    //width: 100%;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  .pl-teamCode{
-    //width: 100%;
-    color:$txt-list-color;
-    font-weight: normal;
 
-  }
-  .pl-cost{
-    color:$txt-list-color;
-    font-size: 100% !important;
-    font-weight: normal;
-    display: inline-block;
-    font-size: 18px;
-    padding: 8px;
-    float: right;
-    //width: 20%;
-  }
+.atg-column-normal {
+  text-align: center;
 }
-//End List players
+
+.atg-column-selected {
+  text-align: center;
+  border-bottom: 2px solid blue;
+}
