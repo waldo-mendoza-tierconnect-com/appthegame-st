@@ -1,0 +1,79 @@
+Ext.define('ATG.controller.Main', {
+    extend: 'Ext.app.Controller',
+
+    config: {
+
+        control: {
+            positionsBar: {
+                positionChanged: 'onPositionChanged'
+            },
+
+            playerList: {
+                itemtap: 'onPlayerSelected'
+            }
+        },
+
+        refs: {
+            positionsBar: 'positionsbar',
+            playerList: 'list',
+            pointsBank: '#pointsBank',
+            mainView: 'main'
+        }
+    },
+
+    onPositionChanged: function (position) {
+        var me = this,
+            challenge = ATG.app.challenge,
+            players = challenge.getPlayersForPosition(position),
+            selectedForPosition = challenge.getSelectionFor(position),
+            playerList = me.getPlayerList();
+
+        me.updatePointBanks();
+
+        playerList.setStore(players);
+
+        selectedForPosition && playerList.select(selectedForPosition);
+    },
+
+    onPlayerSelected: function (list, index, target, player) {
+        var me = this,
+            challenge = ATG.app.challenge;
+
+        if (challenge.handleSelection(player, me.getPositionsBar().getPositionName())) {
+            me.getPositionsBar().setButtonPoints(player.get('FantasyCost'));
+        } else {
+            me.getPositionsBar().setButtonPoints('');
+        }
+
+        me.updatePointBanks();
+
+        if (challenge.isDraftComplete()) {
+
+            var box = me.getMainView().element.getBox();
+
+            Ext.Viewport.add({
+                xtype: 'container',
+                top: box.height - 70,
+                left: box.left,
+                width: box.width,
+                height: 70,
+
+                items: {
+                    xtype: 'button',
+                    ui: '',
+                    cls: 'btn-confirm',
+                    height: 80,
+                    margin: '10 24',
+                    text: 'Confirm Draft',
+                    flex: 1
+                }
+            });
+        }
+    },
+
+    updatePointBanks: function () {
+        var me = this;
+
+        me.getPointsBank().setData(ATG.app.challenge.getData());
+    }
+});
