@@ -136,3 +136,15 @@ $txt-list-color: #00315a;
   }
 }
 //End List players
+
+//Begin button games
+.btn-game{
+  background: none transparent;
+  border: 0;
+  @include border-radius(0);
+  .x-button-label{font-size: 0.9em; color: #b6c1d2; font-weight: normal;}
+  .icon{
+
+  }
+}
+//End button games
