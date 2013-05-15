@@ -73,6 +73,7 @@ Ext.define('ATG.view.Main', {
                     xtype: 'button',
                     text: 'Games',
                     data: 'show',
+                    cls: 'atg-games-collapsed',
                     listeners: {
                         tap: me.onGamesButtonTapped
                     }
@@ -98,11 +99,15 @@ Ext.define('ATG.view.Main', {
             actionCfg = {
                 "show": {
                     toLeft: parent.element.getBox().left - 200,
-                    data: "hide"
+                    data: "hide",
+                    removeCls: 'atg-games-collapsed',
+                    addCls: 'atg-games-expanded'
                 },
                 "hide": {
                     toLeft: parent.element.getBox().left + 200,
-                    data: "show"
+                    data: "show",
+                    removeCls: 'atg-games-expanded',
+                    addCls: 'atg-games-collapsed'
                 }
             },
             config = actionCfg[button.getData()],
@@ -118,6 +123,8 @@ Ext.define('ATG.view.Main', {
 
         animation.on('animationend', function () {
             button.setData(config.data);
+            button.removeCls(config.removeCls)
+            button.addCls(config.addCls);
         });
 
         Ext.Animator.run(animation);
