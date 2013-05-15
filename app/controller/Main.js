@@ -9,7 +9,8 @@ Ext.define('ATG.controller.Main', {
             },
 
             playerList: {
-                itemtap: 'onPlayerSelected'
+                itemtap: 'onPlayerSelected',
+                initialize: 'onPlayerListInitialize'
             }
         },
 
@@ -19,6 +20,10 @@ Ext.define('ATG.controller.Main', {
             pointsBank: '#pointsBank',
             mainView: 'main'
         }
+    },
+
+    onPlayerListInitialize: function () {
+        this.onPositionChanged(ATG.app.challenge.get('PositionNames')[0]);
     },
 
     onPositionChanged: function (position) {
@@ -51,8 +56,7 @@ Ext.define('ATG.controller.Main', {
 
             var box = me.getMainView().element.getBox();
 
-            Ext.Viewport.add({
-                xtype: 'container',
+            me.gameList = Ext.create('Ext.Container', {
                 top: box.height - 70,
                 left: box.left,
                 width: box.width,
@@ -68,6 +72,12 @@ Ext.define('ATG.controller.Main', {
                     flex: 1
                 }
             });
+
+            Ext.Viewport.add(me.gameList);
+        } else {
+            if (me.gameList) {
+                Ext.Viewport.remove(me.gameList);
+            }
         }
     },
 
