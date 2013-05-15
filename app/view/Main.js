@@ -22,11 +22,11 @@ Ext.define('ATG.view.Main', {
             xtype: 'container',
             cls: 'points-bar',
             tpl: '<div>Points Bank: {AvailableFantasyPoints}pts</div>',
-            height: 80,
-            style: {
-                lineHeight: '70px',
-                textAlign: 'center'
-            }
+            height: 50
+//            style: {
+//                lineHeight: '70px',
+//                textAlign: 'center'
+//            }
         }, {
             xtype: 'list',
             cls: 'pl-list',
