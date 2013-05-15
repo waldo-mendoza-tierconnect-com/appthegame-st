@@ -48,8 +48,7 @@ Ext.define('ATG.view.Main', {
 
     initialize: function () {
         var me = this,
-            pointsBank = me.down('#pointsBank'),
-            games = ATG.app.challenge.games().getData();
+            pointsBank = me.down('#pointsBank');
 
         me.callParent();
 
@@ -65,7 +64,8 @@ Ext.define('ATG.view.Main', {
                 layout: 'hbox',
                 items: [{
                     xtype: 'button',
-                    text: '<',
+                    text: 'Games',
+                    data: 'show',
                     listeners: {
                         tap: me.onGamesButtonTapped
                     }
@@ -89,16 +89,16 @@ Ext.define('ATG.view.Main', {
 
         var parent = button.up('container'),
             actionCfg = {
-                "<": {
+                "show": {
                     toLeft: parent.element.getBox().left - 200,
-                    newText: ">"
+                    data: "hide"
                 },
-                ">": {
+                "hide": {
                     toLeft: parent.element.getBox().left + 200,
-                    newText: "<"
+                    data: "show"
                 }
             },
-            config = actionCfg[button.getText()],
+            config = actionCfg[button.getData()],
             animation = new Ext.fx.Animation({
                 element: parent.element,
                 duration: 800,
@@ -110,7 +110,7 @@ Ext.define('ATG.view.Main', {
             });
 
         animation.on('animationend', function () {
-            button.setText(config.newText);
+            button.setData(config.data);
         });
 
         Ext.Animator.run(animation);

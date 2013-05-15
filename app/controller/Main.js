@@ -9,7 +9,8 @@ Ext.define('ATG.controller.Main', {
             },
 
             playerList: {
-                itemtap: 'onPlayerSelected'
+                itemtap: 'onPlayerSelected',
+                initialize: 'onPlayerListInitialize'
             }
         },
 
@@ -19,6 +20,10 @@ Ext.define('ATG.controller.Main', {
             pointsBank: '#pointsBank',
             mainView: 'main'
         }
+    },
+
+    onPlayerListInitialize: function () {
+        this.onPositionChanged(ATG.app.challenge.get('PositionNames')[0]);
     },
 
     onPositionChanged: function (position) {
