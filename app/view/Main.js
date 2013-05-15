@@ -12,7 +12,7 @@ Ext.define('ATG.view.Main', {
             xtype: 'titlebar',
             cls: 'app-title',
             docked: 'top',
-            height: 95,
+//            height: 95,
             title: 'Draft Team'
         }, {
             xtype: 'positionsbar',
