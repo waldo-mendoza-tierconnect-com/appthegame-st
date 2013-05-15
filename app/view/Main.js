@@ -22,7 +22,7 @@ Ext.define('ATG.view.Main', {
             xtype: 'container',
             cls: 'points-bar',
             tpl: '<div>Points Bank: {AvailableFantasyPoints}pts</div>',
-            height: 50
+            height: 70
 //            style: {
 //                lineHeight: '70px',
 //                textAlign: 'center'
@@ -57,14 +57,17 @@ Ext.define('ATG.view.Main', {
 
             Ext.Viewport.add({
                 xtype: 'container',
-                top: box.top + 30,
-                left: box.width - 80,
+                top: box.top + 18,
+                left: box.width - 70,
                 width: 290,
                 height: 50,
                 layout: 'hbox',
                 items: [{
                     xtype: 'button',
                     text: 'Games',
+                    cls: 'btn-game',
+                    iconCls: 'icon',
+                    iconAlign: 'bottom',
                     data: 'show',
                     listeners: {
                         tap: me.onGamesButtonTapped

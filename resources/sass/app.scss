@@ -87,6 +87,7 @@ $app-backgroundColor: #f9fcfc;
   background-color: $app-backgroundColor;
   font-size: 120%;
   font-weight: normal;
+  line-height: 50px;
 
 }
 //End Points bar
@@ -136,3 +137,15 @@ $txt-list-color: #00315a;
   }
 }
 //End List players
+
+//Begin game button and scroll elements
+.btn-game{
+  background: none transparent;
+  border:0;
+  icon{
+    background-image: url("");
+  }
+  .x-button-label{font-size: 0.9em; color: #b6c1d2; font-weight: normal;}
+
+}
+//End game button and scroll elements
