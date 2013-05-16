@@ -173,39 +173,38 @@ $txt-list-color: #00315a;
 
   .pl-infoContent{
     display: inline-block;
-    //font-size: 18px;
     padding: 8px;
   }
   .pl-name{
     color:$txt-list-color;
     font-weight: bold;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .pl-teamCode{
     color:$txt-list-color;
     font-weight: normal;
-
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .pl-cost{
     color:$txt-list-color;
     font-weight: normal;
-    //display: inline;
-    //font-size: 18px;
-    padding: 8px;
-    //float: right;
-    //width: 20%;
   }
   ul{
     display: table;
     width: 100%;
   }
   li{
+    padding-top: 8px;
     display: table-cell;
     vertical-align: top;
     width: 20%;
     font-size: 80%;
+    text-align: center;
     div{font-size: 80%;}
   }
+  //.cnt-status, .cnt-time, {text-align: center;}
 }
 //End List players
 
