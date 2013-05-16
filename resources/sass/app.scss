@@ -166,14 +166,15 @@ $txt-list-color: #00315a;
     background: none transparent;
     border: 0;
     @include border-radius(0);
-    .x-button-label{font-size: 0.9em; color: #999999; font-weight: normal;}
+    .x-button-label{font-size: 0.9em; color: #b6c1d3; font-weight: normal;}
     .icon{
       background-position: 50% 50%;
       background-repeat: no-repeat;
     }
   }
 .x-button.atg-games-expanded{
-  .x-button-label{}
+  background-color: #b6c1d3;
+  .x-button-label{color: #fff;}
   .icon{
     background-image: url("../icons/images/ic-arrow-right.png");
   }
@@ -183,6 +184,15 @@ $txt-list-color: #00315a;
   .icon{
     background-image: url("../icons/images/ic-arrow-left.png");
   }
+}
+.x-dataview-item{
+  background-color: #b6c1d3;
+  color: #fff;
+  margin:  0 0 0 1px;
+  padding: 0 5px ;
+  height: 55px;
+  .nameCode{font-size: 0.8em;}
+  .time{font-size: 0.7em;}
 }
 }
 //End button games
