@@ -35,16 +35,16 @@ Ext.define('ATG.view.Main', {
             model: 'ATG.model.Player',
             allowDeselect: true,
             itemTpl: new Ext.XTemplate(
-                '<div>',
-                    '<div style="display: inline-block;" class="list-columnData"><img src="./resources/icons/player.png" width="50" height="50"/></div>',
-                    '<div class="pl-infoContent list-columnData">',
+                '<ul>',
+                    '<li class=""><img src="./resources/icons/player.png" width="50" height="50"/></li>',
+                    '<li class="pl-infoContent">',
                         '<div class="pl-name">{Name}</div>',
                         '<div class="pl-teamCode">{[this.getGameName(values)]}</div>',
-                    '</div>',
-                    '<div class="pl-infoContent list-columnData">{[this.getGameTime(values)]}</div>',
-                    '<div class="pl-cost list-columnData">{FantasyCost} pts</div>',
-                    '<div class="list-columnData"><img src="./resources/icons/images/info-paternity@2x.png" width="50" height="50"/></div>',
-                '</div>', {
+                    '</li>',
+                    '<li class="pl-infoContent">{[this.getGameTime(values)]}</li>',
+                    '<li class="pl-cost">{FantasyCost} pts</li>',
+                    '<li class=""><img src="./resources/icons/images/info-paternity@2x.png" width="50" height="50"/></li>',
+                '</ul>', {
                     getGameName: function (values) {
                         var ch = ATG.app.challenge,
                             game = ch ? ch.getTeamGame(values.TeamID) : null;
