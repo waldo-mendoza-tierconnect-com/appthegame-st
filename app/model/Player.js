@@ -1,7 +1,10 @@
 Ext.define('ATG.model.Player', {
     extend: 'Ext.data.Model',
 
-    requires: ['ATG.model.Game'],
+    requires: [
+        'ATG.model.Game'
+//        'ATG.model.Challenge'
+    ],
 
     config: {
         fields: [
@@ -20,6 +23,9 @@ Ext.define('ATG.model.Player', {
 
                 return code ? code : "NONE";
             }}
-        ]
+        ],
+
+//        belongsTo: {model: 'ATG.model.Challenge', getterName: 'getChallenge', associationKey: 'FantasyChallenge', associatedName: 'Challenge'}
+        hasOne: {model: 'ATG.model.Challenge', getterName: 'getChallenge', associationKey: 'FantasyChallenge'}
     }
 });

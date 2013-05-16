@@ -70,6 +70,18 @@ Ext.application({
                 model: 'ATG.model.Challenge'
             });
 
+        store.on('addrecords', function () {
+            console.log('addrecords');
+        });
+
+        store.on('metachange', function () {
+            console.log('metachange');
+        });
+
+        store.on('updaterecord', function () {
+            console.log('updaterecord');
+        });
+
         store.load({
             callback: me.onDataLoaded,
             scope: me

@@ -34,16 +34,31 @@ Ext.define('ATG.view.Main', {
             cls: 'pl-list',
             model: 'ATG.model.Player',
             allowDeselect: true,
-            itemTpl: [
+            itemTpl: new Ext.XTemplate(
                 '<div>',
                     '<div style="display: inline-block;"><img src="./resources/icons/player.png" width="50" height="50"/></div>',
                     '<div class="pl-infoContent">',
                         '<div class="pl-name">{Name}</div>',
-                        '<div class="pl-teamCode">{TeamCode}</div>',
+                        '<div class="pl-teamCode">{[this.getGameName(values)]}</div>',
                     '</div>',
+                    '<div class="pl-infoContent">{[this.getGameTime(values)]}</div>',
                     '<div class="pl-cost">{FantasyCost} pts</div>',
-                '</div>'
-            ],
+                '<div style="display: inline-block;"><img src="./resources/icons/images/info-paternity@2x" width="50" height="50"/></div>',
+                '</div>', {
+                    getGameName: function (values) {
+                        var ch = ATG.app.challenge,
+                            game = ch ? ch.getTeamGame(values.TeamID) : null;
+
+                        return game ? game.get('NamesWithCodes') : 'NONE';
+                    },
+
+                    getGameTime: function (values) {
+                        var ch = ATG.app.challenge,
+                            game = ch ? ch.getTeamGame(values.TeamID) : null;
+
+                        return game ? game.get('GameDate') : 'NONE';
+                    }
+                }),
             flex: 1
         }]
     },
@@ -80,11 +95,16 @@ Ext.define('ATG.view.Main', {
                     xtype: 'dataview',
                     flex: 1,
                     scrollable: 'horizontal',
+                    allowDeselect: true,
                     inline: {
                         wrap: false
                     },
-                    itemTpl: '<div style="padding: 5px;" class="nameCode">{NamesWithCodes}</div><div class="time">{GameTime}</div>',
-                    store: ATG.app.challenge.games()
+                    itemTpl: '<div class="nameCode">{NamesWithCodes}</div><div class="time">{GameTime}</div>',
+                    store: ATG.app.challenge.games(),
+                    listeners: {
+                        selectionchange: me.onSelectionChange,
+                        scope: me
+                    }
                 }]
             });
 
@@ -144,5 +164,9 @@ Ext.define('ATG.view.Main', {
                 'font-size': config.toFont
             }
         });
+    },
+
+    onSelectionChange: function (list, records, eOpts) {
+        this.fireEvent('gameSelected', list, records);
     }
 });

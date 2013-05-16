@@ -119,5 +119,12 @@ Ext.define('ATG.model.Challenge', {
         }
 
         return true;
+    },
+
+    getTeamGame: function (teamId) {
+        var me = this,
+            games = me.games();
+
+        return games.findRecord('HomeTeamID', teamId) || games.findRecord('AwayTeamID', teamId);
     }
 });

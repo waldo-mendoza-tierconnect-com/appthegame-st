@@ -20,6 +20,17 @@ Ext.define('ATG.model.Game', {
                     return '';
                 }
             }},
+            { name: 'GameDate', convert: function (value, record) {
+                try {
+                    var str = record.get('UTCTime'),
+                        str = str.substring(0, str.length - 1),
+                        date = Ext.Date.parse(str, 'c');
+
+                    return Ext.Date.format(date, "m/d");
+                } catch (e) {
+                    return '';
+                }
+            }},
             { name: "NamesWithCodes", convert: function (value, game) {
                 var fn = ATG.model.Game.getTeamCodeById;
 
