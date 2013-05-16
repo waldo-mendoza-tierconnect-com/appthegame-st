@@ -43,6 +43,7 @@ Ext.define('ATG.view.Main', {
                     '</div>',
                     '<div class="pl-infoContent">{[this.getGameTime(values)]}</div>',
                     '<div class="pl-cost">{FantasyCost} pts</div>',
+                '<div style="display: inline-block;"><img src="./resources/icons/images/info-paternity@2x" width="50" height="50"/></div>',
                 '</div>', {
                     getGameName: function (values) {
                         var ch = ATG.app.challenge,

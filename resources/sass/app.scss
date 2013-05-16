@@ -127,6 +127,7 @@ $txt-list-color: #00315a;
 .app-listHead{
   background-color: $app-backgroundColor;
   color: $txt-list-headcolor;
+
   .atg-column-normal{
     text-align: center;
     .x-innerhtml{
@@ -164,7 +165,7 @@ $txt-list-color: #00315a;
 .pl-list{
   .pl-infoContent{
     display: inline-block;
-    font-size: 18px;
+    font-size: 15px;
     padding: 8px;
     //width: 100%;
   }
