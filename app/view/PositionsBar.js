@@ -53,17 +53,29 @@ Ext.define('ATG.view.PositionsBar', {
 
     onItemTap: function (button) {
         var me = this,
-            oldIdx = me.getSelectedIndex(),
             newIdx = me.items.indexOf(button);
 
         me.setSelectedIndex(newIdx);
+    },
 
-        me.items.getAt(oldIdx).setCls(me.getItemCls(oldIdx));
-        me.items.getAt(newIdx).setCls(me.getItemCls(newIdx));
+    updateSelectedIndex: function (newIdx, oldIdx) {
+        var me = this,
+            button;
+
+        if (me.items.getCount() == 0) {
+            return;
+        }
+
+        if (oldIdx !== null && oldIdx !== undefined) {
+            me.items.getAt(oldIdx).setCls(me.getItemCls(oldIdx));
+        }
+        if (newIdx !== null && newIdx !== undefined) {
+            button = me.items.getAt(newIdx);
+            button.setCls(me.getItemCls(newIdx));
+        }
 
         me.fireEvent('positionChanged', button.getText());
     },
-
 
     isItemSelected: function (index) {
         return this.getSelectedIndex() === index;

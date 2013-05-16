@@ -69,6 +69,7 @@ Ext.define('ATG.controller.Main', {
 
         me.updatePointBanks();
 
+//        playerList.setStore(null);
         playerList.setStore(players);
 
         selectedForPosition && playerList.select(selectedForPosition);
@@ -76,12 +77,13 @@ Ext.define('ATG.controller.Main', {
 
     onPlayerSelected: function (list, index, target, player) {
         var me = this,
-            challenge = ATG.app.challenge;
+            challenge = ATG.app.challenge,
+            positionsBar = me.getPositionsBar();
 
-        if (challenge.handleSelection(player, me.getPositionsBar().getPositionName())) {
-            me.getPositionsBar().setButtonPoints(player.get('FantasyCost'));
+        if (challenge.handleSelection(player, positionsBar.getPositionName())) {
+            positionsBar.setButtonPoints(player.get('FantasyCost'));
         } else {
-            me.getPositionsBar().setButtonPoints('');
+            positionsBar.setButtonPoints('');
         }
 
         me.updatePointBanks();
@@ -113,6 +115,10 @@ Ext.define('ATG.controller.Main', {
                 Ext.Viewport.remove(me.draftSection);
             }
         }
+
+//        if (positionsBar.getSelectedIndex() + 1 <= 2) {
+//            positionsBar.setSelectedIndex(positionsBar.getSelectedIndex() + 1);
+//        }
     },
 
     updatePointBanks: function () {

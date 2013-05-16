@@ -16,7 +16,17 @@ Ext.define('ATG.view.Main', {
             xtype: 'titlebar',
             cls: 'app-title',
             docked: 'top',
-            title: 'Draft Team'
+            title: 'Draft Team',
+
+            items: [{
+                xtype: 'component',
+                html: '<',
+                align: 'left'
+            }, {
+                xtype: 'component',
+                html: '$30',
+                align: 'right'
+            }]
         }, {
             xtype: 'positionsbar',
             selectedIndex: 0
@@ -118,7 +128,7 @@ Ext.define('ATG.view.Main', {
             parent = button.up('container'),
             actionCfg = {
                 "show": {
-                    toLeft: parent.element.getBox().left - 200,
+                    toLeft: parent.element.getBox().left - 230,
                     data: "hide",
                     removeCls: 'atg-games-collapsed',
                     addCls: 'atg-games-expanded',
@@ -126,7 +136,7 @@ Ext.define('ATG.view.Main', {
                     toFont: '15px'
                 },
                 "hide": {
-                    toLeft: parent.element.getBox().left + 200,
+                    toLeft: parent.element.getBox().left + 230,
                     data: "show",
                     removeCls: 'atg-games-expanded',
                     addCls: 'atg-games-collapsed',
