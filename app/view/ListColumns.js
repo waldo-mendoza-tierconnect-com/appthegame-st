@@ -1,5 +1,7 @@
 Ext.define('ATG.view.ListColumns', {
     extend: 'Ext.Container',
+    cls: 'app-listHead',
+    margin: '0 5',
     xtype: 'listcolumns',
 
     config: {
@@ -7,7 +9,8 @@ Ext.define('ATG.view.ListColumns', {
         selectedColumn: 0,
 
         defaults: {
-            cls: 'atg-column-normal'
+            cls: 'atg-column-normal',
+            height: 30
         },
         items: [{
             xtype: 'component',
