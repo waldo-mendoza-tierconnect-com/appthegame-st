@@ -186,13 +186,18 @@ $txt-list-color: #00315a;
   .icon{background-image: url("../icons/images/ic-arrow-left.png");}
 }
 .x-dataview-item{
-  background-color: #b6c1d3;
-  color: #fff;
+  background-color: transparent;
+  color: #b6c1d3;
   margin:  0 0 0 1px;
   padding: 0 5px ;
   height: 55px;
   .nameCode{font-size: 0.8em;}
   .time{font-size: 0.7em;}
+}
+
+.x-item-selected {
+  background-color: #b6c1d3;
+  color: #fff;
 }
 }
 //End button games and panel

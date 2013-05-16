@@ -21,6 +21,10 @@ Ext.define('ATG.controller.Main', {
                         playerList.getStore().sort(info.data.field, info.data.type);
                     }
                 }
+            },
+
+            main: {
+                gameSelected: 'onGameSelected'
             }
         },
 
@@ -29,12 +33,31 @@ Ext.define('ATG.controller.Main', {
             playerList: 'list',
             pointsBank: '#pointsBank',
             mainView: 'main',
-            listColumns: 'listcolumns'
+            listColumns: 'listcolumns',
+            main: 'main'
+        }
+    },
+
+    onGameSelected: function (gameList, games) {
+        var me = this,
+            playerList = me.getPlayerList(),
+            game = games[0];
+
+        playerList.getStore().clearFilter(true);
+
+        if (gameList.getSelectionCount() > 0) {
+            playerList.getStore().filterBy(function (player) {
+                var teamId = player.get('TeamID');
+
+                return teamId == game.get('HomeTeamID') || teamId == game.get('AwayTeamID');
+            });
         }
     },
 
     onPlayerListInitialize: function () {
-        this.onPositionChanged(ATG.app.challenge.get('PositionNames')[0]);
+        var me = this;
+
+        me.onPositionChanged(ATG.app.challenge.get('PositionNames')[0]);
     },
 
     onPositionChanged: function (position) {
@@ -67,11 +90,11 @@ Ext.define('ATG.controller.Main', {
 
             var box = me.getMainView().element.getBox();
 
-            me.gameList = Ext.create('Ext.Container', {
-                top: box.height - 70,
+            me.draftSection = Ext.create('Ext.Container', {
+                top: box.height - 100,
                 left: box.left,
                 width: box.width,
-                height: 70,
+                height: 80,
 
                 items: {
                     xtype: 'button',
@@ -84,10 +107,10 @@ Ext.define('ATG.controller.Main', {
                 }
             });
 
-            Ext.Viewport.add(me.gameList);
+            Ext.Viewport.add(me.draftSection);
         } else {
-            if (me.gameList) {
-                Ext.Viewport.remove(me.gameList);
+            if (me.draftSection) {
+                Ext.Viewport.remove(me.draftSection);
             }
         }
     },
