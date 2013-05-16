@@ -38,6 +38,20 @@ $app-backgroundColor: #f9fcfc;
     font-weight: normal;
   }
 }
+.app-title-money{
+  .x-innerhtml {
+    font-size: 1em;
+    color: #fff;
+  }
+}
+.app-title-back{
+  background-image: url("../icons/images/ic-arrow-head-left.png");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 40px;
+
+}
 //End App Head
 
 //Begin Buttons input menu head
@@ -242,14 +256,27 @@ $txt-list-color: #00315a;
   .x-button-label{}
   .icon{background-image: url("../icons/images/ic-arrow-left.png");}
 }
+//.x-dataview-item{
+//  background-color: #b6c1d3;
+//  color: #fff;
+//  margin:  0 0 0 1px;
+//  padding: 0 5px ;
+//  height: 55px;
+//  .nameCode{font-size: 0.8em;}
+//  .time{font-size: 0.7em;}
+//}
 .x-dataview-item{
-  background-color: #b6c1d3;
-  color: #fff;
+  color: #b6c1d3;
   margin:  0 0 0 1px;
-  padding: 0 5px ;
+  padding: 5px ;
   height: 55px;
   .nameCode{font-size: 0.8em;}
   .time{font-size: 0.7em;}
+}
+
+.x-item-selected {
+  background-color: #b6c1d3;
+  color: #fff;
 }
 }
 //End button games and panel

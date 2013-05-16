@@ -20,11 +20,14 @@ Ext.define('ATG.view.Main', {
 
             items: [{
                 xtype: 'component',
-                html: '<',
+                cls: 'app-title-back',
+//                html: '<',
                 align: 'left'
             }, {
                 xtype: 'component',
+                cls: 'app-title-money',
                 html: '$30',
+                margin: 5,
                 align: 'right'
             }]
         }, {
