@@ -22,6 +22,9 @@
 $head-backgroundColor: #00315a;
 $head-testColor: #1cb9fe;
 $app-backgroundColor: #f9fcfc;
+.x-layout-card-item{
+  background-color: $app-backgroundColor;
+}
 .app-title{
   background: none $head-backgroundColor;
   background-image: url("../icons/images/head-bar.png");
