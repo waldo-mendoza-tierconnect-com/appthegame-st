@@ -127,28 +127,33 @@ $txt-list-color: #00315a;
 .app-listHead{
   background-color: $app-backgroundColor;
   color: $txt-list-headcolor;
+  .x-layout-box-item{
+    .x-innerhtml{
+      font-size: 75%;
+      //display: inline-block;
+      position: relative;
+      //margin: 0 0 0 5%;
+      //padding-right: 13px;
+      .icon{
+        width: 12px;
+        height: 15px;
+        display: inline-block;
+      }
+    }
+  }
   .atg-column-normal{
     text-align: center;
     .x-innerhtml{
-      display: inline-block;
-      position: relative;
-      margin: 0 0 0 10px;
-      padding-right: 18px;
     }
   }
   .atg-column-selected{
     color: $head-testColor;
     text-align: center;
     font-weight: bold;
-    .x-innerhtml{
-      display: inline-block;
-      position: relative;
-      margin: 0 0 0 10px;
-      padding-right: 18px;
+    .icon{
       background-image: url("../icons/images/ic-list-top.png");
-      background-position: 100% 50%;
+      background-position: right bottom;
       background-repeat: no-repeat;
-
     }
   }
   .atg-column-selected:before{

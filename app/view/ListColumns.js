@@ -14,7 +14,7 @@ Ext.define('ATG.view.ListColumns', {
         },
         items: [{
             xtype: 'component',
-            html: 'Athlete',
+            html: 'Athlete<div class="icon"></div>',
             flex: 0.2,
             data: {
                 field: 'Name',
@@ -22,7 +22,7 @@ Ext.define('ATG.view.ListColumns', {
             }
         }, {
             xtype: 'component',
-            html: 'Team',
+            html: 'Team<div class="icon"></div>',
             flex: 0.2,
             data: {
                 field: 'TeamName',
@@ -30,12 +30,12 @@ Ext.define('ATG.view.ListColumns', {
             }
         }, {
             xtype: 'component',
-            html: 'Time',
+            html: 'Time<div class="icon"></div>',
             flex: 0.2,
             data: null
         }, {
             xtype: 'component',
-            html: 'Points',
+            html: 'Points<div class="icon"></div>',
             flex: 0.2,
             data: {
                 field: 'FantasyCost',
@@ -43,7 +43,7 @@ Ext.define('ATG.view.ListColumns', {
             }
         }, {
             xtype: 'component',
-            html: 'Status',
+            html: 'Status<div class="icon"></div>',
             flex: 0.2,
             data: null
         }]
