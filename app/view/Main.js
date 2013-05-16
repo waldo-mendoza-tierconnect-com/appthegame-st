@@ -42,7 +42,7 @@ Ext.define('ATG.view.Main', {
                         '<div class="pl-teamCode">{[this.getGameName(values)]}</div>',
                     '</li>',
                     '<li class="cnt-time">{[this.getGameTime(values)]}</li>',
-                    '<li class="pl-cost">{FantasyCost} pts</li>',
+                    '<li class="cnt-cost">{FantasyCost} pts</li>',
                     '<li class="cnt-status"><img src="./resources/icons/images/info-paternity@2x.png" width="50" height="50"/></li>',
                 '</ul>', {
                     getGameName: function (values) {

@@ -187,15 +187,16 @@ $txt-list-color: #00315a;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .pl-cost{
-    color:$txt-list-color;
+  .cnt-cost{
     font-weight: normal;
+    white-space: nowrap;
   }
   ul{
     display: table;
     width: 100%;
   }
   li{
+    color:$txt-list-color;
     padding-top: 8px;
     display: table-cell;
     vertical-align: top;
@@ -203,6 +204,12 @@ $txt-list-color: #00315a;
     font-size: 80%;
     text-align: center;
     div{font-size: 80%;}
+  }
+  .x-item-selected{
+    li{
+      color: #fff;
+      div{color: #fff;}
+    }
   }
   //.cnt-status, .cnt-time, {text-align: center;}
 }
