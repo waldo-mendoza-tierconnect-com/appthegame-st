@@ -16,7 +16,6 @@ Ext.define('ATG.view.Main', {
             xtype: 'titlebar',
             cls: 'app-title',
             docked: 'top',
-//            height: 95,
             title: 'Draft Team'
         }, {
             xtype: 'positionsbar',
@@ -27,10 +26,6 @@ Ext.define('ATG.view.Main', {
             cls: 'points-bar',
             tpl: '<div>Points Bank: {AvailableFantasyPoints}pts</div>',
             height: 70
-//            style: {
-//                lineHeight: '70px',
-//                textAlign: 'center'
-//            }
         }, {
             xtype: 'listcolumns',
             selectedColumn: 0
@@ -78,7 +73,8 @@ Ext.define('ATG.view.Main', {
                     data: 'show',
                     cls: 'atg-games-collapsed',
                     listeners: {
-                        tap: me.onGamesButtonTapped
+                        tap: me.onGamesButtonTapped,
+                        scope: me
                     }
                 }, {
                     xtype: 'dataview',
@@ -98,19 +94,24 @@ Ext.define('ATG.view.Main', {
 
     onGamesButtonTapped: function (button) {
 
-        var parent = button.up('container'),
+        var me = this,
+            parent = button.up('container'),
             actionCfg = {
                 "show": {
                     toLeft: parent.element.getBox().left - 200,
                     data: "hide",
                     removeCls: 'atg-games-collapsed',
-                    addCls: 'atg-games-expanded'
+                    addCls: 'atg-games-expanded',
+                    fromFont: '22px',
+                    toFont: '15px'
                 },
                 "hide": {
                     toLeft: parent.element.getBox().left + 200,
                     data: "show",
                     removeCls: 'atg-games-expanded',
-                    addCls: 'atg-games-collapsed'
+                    addCls: 'atg-games-collapsed',
+                    fromFont: '15px',
+                    toFont: '22px'
                 }
             },
             config = actionCfg[button.getData()],
@@ -131,5 +132,17 @@ Ext.define('ATG.view.Main', {
         });
 
         Ext.Animator.run(animation);
+
+        Ext.Animator.run({
+            element: me.down('#pointsBank').element,
+            duration: 500,
+            preserveEndState: true,
+            from: {
+                'font-size': config.fromFont
+            },
+            to: {
+                'font-size': config.toFont
+            }
+        });
     }
 });

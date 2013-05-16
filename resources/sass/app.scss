@@ -88,9 +88,9 @@ $app-backgroundColor: #f9fcfc;
 //Begin Points bar
 .points-bar{
   background-color: $app-backgroundColor;
-  font-size: 120%;
+  font-size: 22px;
   font-weight: normal;
-
+  text-align: center;
 }
 //End Points bar
 
@@ -178,6 +178,7 @@ $txt-list-color: #00315a;
   }
 }
 //End List players
+
 
 //Begin button games an panel
 .panel-games{
