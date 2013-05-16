@@ -160,7 +160,7 @@ $txt-list-color: #00315a;
 }
 //End List players
 
-//Begin button games
+//Begin button games an panel
 .panel-games{
   .x-button{
     background: none transparent;
@@ -175,15 +175,11 @@ $txt-list-color: #00315a;
 .x-button.atg-games-expanded{
   background-color: #b6c1d3;
   .x-button-label{color: #fff;}
-  .icon{
-    background-image: url("../icons/images/ic-arrow-right.png");
-  }
+  .icon{background-image: url("../icons/images/ic-arrow-right.png");}
 }
 .x-button.atg-games-collapsed{
   .x-button-label{}
-  .icon{
-    background-image: url("../icons/images/ic-arrow-left.png");
-  }
+  .icon{background-image: url("../icons/images/ic-arrow-left.png");}
 }
 .x-dataview-item{
   background-color: #b6c1d3;
@@ -195,4 +191,4 @@ $txt-list-color: #00315a;
   .time{font-size: 0.7em;}
 }
 }
-//End button games
+//End button games and panel

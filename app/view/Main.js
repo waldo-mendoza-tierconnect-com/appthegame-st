@@ -73,7 +73,6 @@ Ext.define('ATG.view.Main', {
                 items: [{
                     xtype: 'button',
                     text: 'Games',
-//                    cls: 'btn-game',
                     iconCls: 'icon',
                     iconAlign: 'bottom',
                     data: 'show',
