@@ -36,7 +36,7 @@ Ext.define('ATG.view.Main', {
             allowDeselect: true,
             itemTpl: new Ext.XTemplate(
                 '<ul>',
-                    '<li class=""><img src="./resources/icons/player.png" width="50" height="50"/></li>',
+                    '<li class="cnt-playerImg"><img src="./resources/icons/player.png" width="50" height="50"/></li>',
                     '<li class="pl-infoContent">',
                         '<div class="pl-name">{Name}</div>',
                         '<div class="pl-teamCode">{[this.getGameName(values)]}</div>',
