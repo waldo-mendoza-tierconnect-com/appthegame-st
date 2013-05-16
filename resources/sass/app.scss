@@ -130,10 +130,7 @@ $txt-list-color: #00315a;
   .x-layout-box-item{
     .x-innerhtml{
       font-size: 75%;
-      //display: inline-block;
       position: relative;
-      //margin: 0 0 0 5%;
-      //padding-right: 13px;
       .icon{
         width: 12px;
         height: 15px;
@@ -171,16 +168,13 @@ $txt-list-color: #00315a;
     display: inline-block;
     font-size: 18px;
     padding: 8px;
-    //width: 100%;
   }
   .pl-name{
     color:$txt-list-color;
-    //width: 100%;
     font-weight: bold;
     white-space: nowrap;
   }
   .pl-teamCode{
-    //width: 100%;
     color:$txt-list-color;
     font-weight: normal;
 
