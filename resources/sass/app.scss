@@ -115,11 +115,27 @@ $txt-list-color: #00315a;
   color: $txt-list-headcolor;
   .atg-column-normal{
     text-align: center;
+    .x-innerhtml{
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 10px;
+      padding-right: 18px;
+    }
   }
   .atg-column-selected{
     color: $head-testColor;
     text-align: center;
     font-weight: bold;
+    .x-innerhtml{
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 10px;
+      padding-right: 18px;
+      background-image: url("../icons/images/ic-list-top.png");
+      background-position: 100% 50%;
+      background-repeat: no-repeat;
+
+    }
   }
   .atg-column-selected:before{
     content: '';
