@@ -88,7 +88,7 @@ Ext.define('ATG.view.Main', {
                     inline: {
                         wrap: false
                     },
-                    itemTpl: '<div style="padding: 5px;">{NamesWithCodes}</div><div>{GameTime}</div>',
+                    itemTpl: '<div style="padding: 5px;" class="nameCode">{NamesWithCodes}</div><div class="time">{GameTime}</div>',
                     store: ATG.app.challenge.games()
                 }]
             });
