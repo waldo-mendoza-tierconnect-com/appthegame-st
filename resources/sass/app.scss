@@ -173,7 +173,7 @@ $txt-list-color: #00315a;
 
   .pl-infoContent{
     display: inline-block;
-    font-size: 18px;
+    //font-size: 18px;
     padding: 8px;
   }
   .pl-name{
@@ -188,13 +188,22 @@ $txt-list-color: #00315a;
   }
   .pl-cost{
     color:$txt-list-color;
-    font-size: 80%;
     font-weight: normal;
     //display: inline;
-    font-size: 18px;
+    //font-size: 18px;
     padding: 8px;
     //float: right;
     //width: 20%;
+  }
+  ul{
+    display: table;
+    width: 100%;
+  }
+  li{
+    display: table-cell;
+    width: 20%;
+    font-size: 80%;
+    div{font-size: 80%;}
   }
 }
 //End List players
