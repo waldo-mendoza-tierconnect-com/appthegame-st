@@ -11,6 +11,16 @@ Ext.define('ATG.controller.Main', {
             playerList: {
                 itemtap: 'onPlayerSelected',
                 initialize: 'onPlayerListInitialize'
+            },
+
+            listColumns: {
+                columnChanged: function (info) {
+                    var me = this,
+                        playerList = me.getPlayerList();
+                    if (info.data && playerList) {
+                        playerList.getStore().sort(info.data.field, info.data.type);
+                    }
+                }
             }
         },
 
@@ -18,7 +28,8 @@ Ext.define('ATG.controller.Main', {
             positionsBar: 'positionsbar',
             playerList: 'list',
             pointsBank: '#pointsBank',
-            mainView: 'main'
+            mainView: 'main',
+            listColumns: 'listcolumns'
         }
     },
 

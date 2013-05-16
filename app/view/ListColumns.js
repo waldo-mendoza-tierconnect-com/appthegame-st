@@ -13,27 +13,36 @@ Ext.define('ATG.view.ListColumns', {
             xtype: 'component',
             html: 'Athlete',
             flex: 0.2,
-            data: 'athlete'
+            data: {
+                field: 'Name',
+                type: 'DESC'
+            }
         }, {
             xtype: 'component',
             html: 'Team',
             flex: 0.2,
-            data: 'team'
+            data: {
+                field: 'TeamName',
+                type: 'DESC'
+            }
         }, {
             xtype: 'component',
             html: 'Time',
             flex: 0.2,
-            data: 'time'
+            data: null
         }, {
             xtype: 'component',
             html: 'Points',
             flex: 0.2,
-            data: 'points'
+            data: {
+                field: 'FantasyCost',
+                type: 'DESC'
+            }
         }, {
             xtype: 'component',
             html: 'Status',
             flex: 0.2,
-            data: 'status'
+            data: null
         }]
     },
 
@@ -47,35 +56,43 @@ Ext.define('ATG.view.ListColumns', {
                 scope: me
             })
         });
+
+        me.refreshColumns(0);
     },
 
-    updateSelectedColumn: function (newIndex, oldIndex) {
+    onColumnTap: function (event) {
         var me = this,
-            column = me.items.getAt(newIndex);
+            item, i, n,
+            newIndex = -1;
+
+        for (i = 0, n = me.items.getCount(); i < n; i++) {
+            item = me.items.getAt(i);
+            if (item.element.dom.firstChild == event.target) {
+                newIndex = i;
+                break;
+            }
+        }
+        me.refreshColumns(newIndex);
+
+        me.setSelectedColumn(newIndex);
+    },
+
+    refreshColumns: function (newIndex) {
+        var me = this,
+            column = me.items.getAt(newIndex),
+            oldIndex = me.getSelectedColumn();
 
         if (oldIndex > - 1) {
             me.items.getAt(oldIndex).setCls('atg-column-normal');
         }
         column.setCls('atg-column-selected');
 
-        me.fireEvent('columnChanged', {index: newIndex, column: column.data});
-    },
-
-    onColumnTap: function (event) {
-        var me = this,
-            item, i, n,
-            index = -1;
-
-        for (i = 0, n = me.items.getCount(); i < n; i++) {
-            item = me.items.getAt(i);
-            if (item.element.dom.firstChild == event.target) {
-                index = i;
-                break;
-            }
+        if (newIndex === oldIndex) {
+            var data = column.getData();
+            data.type = (data.type == 'DESC' ? 'ASC' : 'DESC');
+            column.setData(data);
         }
 
-        me.setSelectedColumn(index);
+        me.fireEvent('columnChanged', {index: newIndex, data: column.getData()});
     }
-
-
 });
