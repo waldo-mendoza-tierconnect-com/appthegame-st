@@ -104,7 +104,30 @@ $btn-backgroundColor-confirm: #55e100;
 //End button confirm
 
 //Begin List players
+$txt-list-headcolor: #b6c1d2;
 $txt-list-color: #00315a;
+
+.app-listHead{
+  background-color: $app-backgroundColor;
+  color: $txt-list-headcolor;
+  .atg-column-normal{
+    text-align: center;
+  }
+  .atg-column-selected{
+    color: $head-testColor;
+    text-align: center;
+    font-weight: bold;
+  }
+  .atg-column-selected:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: $head-testColor;
+    bottom: 0;
+    left: 0;
+  }
+}
 .pl-list{
   .pl-infoContent{
     display: inline-block;
