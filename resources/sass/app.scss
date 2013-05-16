@@ -164,6 +164,13 @@ $txt-list-color: #00315a;
   }
 }
 .pl-list{
+  .list-columnData{
+    width: 20%;
+    display: inline;
+    box-sizing: border-box;
+    div{font-size: 80%;}
+  }
+
   .pl-infoContent{
     display: inline-block;
     font-size: 18px;
@@ -181,12 +188,12 @@ $txt-list-color: #00315a;
   }
   .pl-cost{
     color:$txt-list-color;
-    font-size: 100% !important;
+    font-size: 80%;
     font-weight: normal;
-    display: inline-block;
+    //display: inline;
     font-size: 18px;
     padding: 8px;
-    float: right;
+    //float: right;
     //width: 20%;
   }
 }
