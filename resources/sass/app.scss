@@ -41,12 +41,22 @@ $app-backgroundColor: #f9fcfc;
 //End App Head
 
 //Begin Buttons input menu head
+$hmenu-buttonLine: 17px;
+$hmenu-button: 79px;
 .bar-menu{
   .x-button{
     background: none $app-backgroundColor;
+    //height: 96px;
+    height: 70px;
     border:0;
     padding: 0;
-    .x-button-label{font-size: 2em; color: #b6c1d2; line-height: 70px; font-weight: normal;}
+    .x-button-label{
+      font-size: 120%;
+      color: #b6c1d2;
+      //line-height: 70px;
+      line-height: 50px;
+      font-weight: normal;
+    }
     .icon{
       height: 17px;
       width: 100%;
@@ -55,16 +65,19 @@ $app-backgroundColor: #f9fcfc;
       background: none transparent;
       border:0;
       padding: 0;
-      font-size: 1.2em !important;
+      font-size: 80% !important;
+      @include text-shadow(none);
       height: 20px;
       line-height: 20px;
-      top:50px;
-      right: 10%;
+      top:45%;
+      right: 25%;
       @include box-shadow(none);
     }
   }
   .x-button.atg-positions-selected-item{
-    .x-button-label{font-size: 2em; color: $head-testColor; font-weight: bold;}
+    .x-button-label{
+      font-size: 130%; color: $head-testColor; font-weight: bold;
+    }
     .icon{
       height: 17px;
       background-color: $head-testColor;
@@ -81,7 +94,8 @@ $app-backgroundColor: #f9fcfc;
   width: 100%;
   height: 20px;
   z-index: 200;
-  top: 75px;
+  //top: 75px;
+  top: 49px;
 }
 //End  Buttons input menu head
 
@@ -115,11 +129,27 @@ $txt-list-color: #00315a;
   color: $txt-list-headcolor;
   .atg-column-normal{
     text-align: center;
+    .x-innerhtml{
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 10px;
+      padding-right: 18px;
+    }
   }
   .atg-column-selected{
     color: $head-testColor;
     text-align: center;
     font-weight: bold;
+    .x-innerhtml{
+      display: inline-block;
+      position: relative;
+      margin: 0 0 0 10px;
+      padding-right: 18px;
+      background-image: url("../icons/images/ic-list-top.png");
+      background-position: 100% 50%;
+      background-repeat: no-repeat;
+
+    }
   }
   .atg-column-selected:before{
     content: '';
@@ -169,6 +199,8 @@ $txt-list-color: #00315a;
   .x-button{
     background: none transparent;
     border: 0;
+    @include transition-property(background-color);
+    @include transition-duration(1s);
     @include border-radius(0);
     .x-button-label{font-size: 0.9em; color: #b6c1d3; font-weight: normal;}
     .icon{

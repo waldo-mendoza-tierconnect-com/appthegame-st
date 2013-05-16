@@ -22,7 +22,7 @@ Ext.define('ATG.view.PositionsBar', {
                 xtype: 'button',
                 text: item,
                 ui: '',
-                height:96,
+//                height:96,
                 iconCls: 'icon',
                 iconAlign: 'bottom',
                 cls: 'btn-menu ' + me.getItemCls(index),
